@@ -12,5 +12,15 @@ router.post("/", async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 });
+// GET all contact messages
+router.get("/", async (req, res) => {
+  try {
+    const messages = await ContactMessage.find().sort({ submittedAt: -1 });
+    res.json(messages);
+  } catch (err) {
+    console.error("Server error while fetching contact messages:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 module.exports = router;

@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/internship", require("./routes/internship"));
-
+app.use("/api/contact", require("./routes/contact")); 
 // Server listen
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
